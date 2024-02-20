@@ -23,14 +23,14 @@ include "../config.php";
               <a class="nav-link" href="produk.php">Produk</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../kategori/kategori.php">Kategori</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="../penjualan/penjualan.php">Penjualan</a>
             <li class="nav-item">
-              <a class="nav-link" href="../admin/registrasi.php">Karyawan</a>
+              <a class="nav-link" href="../regis/registrasi.php">Karyawan</a>
             </li>
-            </u>
+            <li class="nav-item">
+              <a class="nav-link" href="../logout.php">Logout</a>
+            </li>
+            </ul>
     </div>
 
     <!--form input data produk-->
@@ -48,8 +48,8 @@ include "../config.php";
               <tr>
                 <th>NO</th>
                 <th scope="col">ID PRODUK</th>
-                <th>KATEGORI</th>
-                <th>NAMA PRODUK</th>
+                <th>NAMA PRODUK</t>
+                <th>GAMBAR</th>
                 <th>HARGA</th>
                 <th>STOK</th>
                 <th>TANGGAL INPUT</th>
@@ -61,7 +61,7 @@ include "../config.php";
       
               if (isset($_GET['pencarian'])) {
                   $pencarian = $_GET['pencarian'];
-                   $sql ="SELECT * FROM produk WHERE id_produk LIKE '%$pencarian%' OR nama_kategori LIKE '%$pencarian%' 
+                   $sql ="SELECT * FROM produk WHERE id_produk LIKE '%$pencarian%'
                    OR nama_produk LIKE '%$pencarian%'  OR tgl_input LIKE '%$pencarian%'
                    ";
               }else{
@@ -75,8 +75,8 @@ include "../config.php";
               <tr>
                   <td><?=$no++; ?></td>
                   <td><?=$data['id_produk']; ?></td>
-                  <td><?=$data['nama_kategori']; ?></td>
-                  <td><?=$data['nama_produk']; ?></td>
+                  <td><?=$data['nama_produk']; ?></t>
+                  <td><img src="foto/<?=$data['img']; ?>" alt="foto-<?=$data['nama_produk']; ?>" width="50"> </td>
                   <td><?=$data['harga']; ?></td>
                   <td><?=$data['stok']; ?></td>
                   <td><?=$data['tgl_input']; ?></td>
